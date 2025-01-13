@@ -18,16 +18,16 @@ export const DASHBOARD_MAIN_LINKS= [
   {
     key: 'dashboard',
     label: 'Dashboard',
-    path: '/',
+    path: 'RMS/',
     icon: <HiOutlineViewGrid />,
   },
   {
     key: 'apps',
     label: 'Apps',
-    path: '/app',
+    path: 'RMS/app',
     icon: <HiOutlineCube />,
     subLinks: [
-      { key: 'contacts', label: 'Contacts', path: '/apps/contacts' },
+      { key: 'contacts', label: 'Contacts', path: 'RMS/apps/contacts' },
     ],
   }
 ]
@@ -36,31 +36,31 @@ export const DASHBOARD_EMPLOYEE_LINKS = [
   {
     key: 'employees',
     label: 'Employees',
-    path: '/employees',
+    path: 'RMS/employees',
     icon: <HiOutlineUser />,
     subLinks: [
-      { key: 'all employees', label: 'All Employees', path: '/employees/all' },
-      { key: 'holidays', label: 'Holidays', path: '/employees/holidays' },
-      { key: 'leaves', label: 'Leaves (Employee)', path: '/employees/leaves' },
-      { key: 'overtime', label: 'Overtime', path: '/employees/overtime' }
+      { key: 'all employees', label: 'All Employees', path: 'RMS/employees/all' },
+      { key: 'holidays', label: 'Holidays', path: 'RMS/employees/holidays' },
+      { key: 'leaves', label: 'Leaves (Employee)', path: 'RMS/employees/leaves' },
+      { key: 'overtime', label: 'Overtime', path: 'RMS/employees/overtime' }
     ],
   },
   {
     key: 'clients',
     label: 'Clients',
-    path: '/clients',
+    path: 'RMS/clients',
     icon: <HiOutlineUsers />
   },
   {
     key: 'projects',
     label: 'Projects',
-    path: '/projects',
+    path: 'RMS/projects',
     icon: <HiOutlineCubeTransparent />,
   },
   {
     key: 'leads',
     label: 'Leads',
-    path: '/leads',
+    path: 'RMS/leads',
     icon: <HiOutlinePencil />
   }
 ]
@@ -69,31 +69,31 @@ export const DASHBOARD_HR_LINKS = [
   {
     key: 'accounts',
     label: 'Accounts',
-    path: '/accounts',
+    path: 'RMS/accounts',
     icon: <HiOutlineCash />,
     subLinks: [
-      { key: 'invoices', label: 'Invoices', path: '/accounts/invoices' },
-      { key: 'expenses', label: 'Expenses', path: '/accounts/Expenses' },
-      { key: 'provident fund', label: 'Provident Fund', path: '/accounts/providentfund' },
-      { key: 'taxes', label: 'Taxes', path: '/accounts/taxes' },
+      { key: 'invoices', label: 'Invoices', path: 'RMS/accounts/invoices' },
+      { key: 'expenses', label: 'Expenses', path: 'RMS/accounts/Expenses' },
+      { key: 'provident fund', label: 'Provident Fund', path: 'RMS/accounts/providentfund' },
+      { key: 'taxes', label: 'Taxes', path: 'RMS/accounts/taxes' },
     ]
   },
   {
     key: 'policies',
     label: 'Policies',
-    path: '/policies',
+    path: 'RMS/policies',
     icon: <HiOutlineClipboardDocument />
   },
   {
     key: 'assets',
     label: 'Assets',
-    path: '/assets',
+    path: 'RMS/assets',
     icon: <HiOutlineCollection />
   },
   {
     key: 'activities',
     label: 'activities',
-    path: '/activities',
+    path: 'RMS/activities',
     icon: <HiOutlineBellAlert />
   },
 ]
@@ -102,31 +102,31 @@ export const DASHBOARD_AGENTS_LINKS = [
   {
     key: 'agents',
     label: 'All Agents',
-    path: '/agents/all',
+    path: 'RMS/agents/all',
     icon: <HiOutlineUserGroup />,
   },
   {
     key: 'agents detail',
     label: 'Agents Details',
-    path: '/agents/details',
+    path: 'RMS/agents/details',
     icon: <HiOutlineClipboardDocumentList />
   },
   {
     key: 'agents status',
     label: 'Agent Status',
-    path: '/agents/status',
+    path: 'RMS/agents/status',
     icon: <GiBackwardTime />
   },
   {
     key: 'agents holiday',
     label: 'Holidays',
-    path: '/agents/holidays',
+    path: 'RMS/agents/holidays',
     icon: <GiPartyPopper />
   },
   {
     key: 'leaves',
     label: 'Leaves (Agents)',
-    path: '/agents/leaves',
+    path: 'RMS/agents/leaves',
     icon: <HiOutlineCalendarDays/>
   },
 ]
@@ -135,12 +135,12 @@ export const DASHBOARD_HIERARCHY_LINKS = [
   {
     key: 'hierarchy',
     label: 'Hierarchy',
-    path: '/hierarchy',
+    path: 'RMS/hierarchy',
     icon: <HiOutlineUserGroup />,
     subLinks: [
-      { key: 'add head', label: 'Add Head', path: '/hierarchy/addhead' },
-      { key: 'add position', label: 'Add Position', path: '/hierarchy/addposition' },
-      { key: 'hierarchy graph', label: 'Hierarchy Graph', path: '/hierarchy/graph' },
+      { key: 'add head', label: 'Add Head', path: 'RMS/hierarchy/addhead' },
+      { key: 'add position', label: 'Add Position', path: 'RMS/hierarchy/addposition' },
+      { key: 'hierarchy graph', label: 'Hierarchy Graph', path: 'RMS/hierarchy/graph' },
     ]
   }, 
 ]
@@ -149,13 +149,13 @@ export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
   {
     key: 'users',
     label: 'Users',
-    path: '/users',
+    path: 'RMS/users',
     icon: <HiOutlineUserAdd />
   },
   {
     key: 'settings',
     label: 'Settings',
-    path: '/settings',
+    path: 'RMS/settings',
     icon: <HiOutlineCog />
   },
 ]
