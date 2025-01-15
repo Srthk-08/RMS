@@ -44,44 +44,44 @@ function App() {
       <Routes>
         {/* Conditionally render Layout if authenticated, else redirect to login */}
         <Route
-          path="RMS/"
+          path="/"    
           element={isAuthenticated ? <Layout onLogout={handleLogout} /> : <Navigate to="/login" replace />}
         >
           <Route index element={<Dashboard />} />
-          <Route path="RMS/apps/contacts" element={<Contacts />} />
-          <Route path="RMS/employees/all" element={<AllEmployee />} />
-          <Route path="RMS/employees/holidays" element={<Holidays />} />
-          <Route path="RMS/employees/leaves" element={<Leaves />} />
-          <Route path="RMS/employees/overtime" element={<Overtime />} />
-          <Route path="RMS/clients" element={<Clients />} />
-          <Route path="RMS/projects" element={<Projects />} />
-          <Route path="RMS/leads" element={<Leads />} />
-          <Route path="RMS/accounts/invoices" element={<Invoice />} />
-          <Route path="RMS/accounts/expenses" element={<Expense />} />
-          <Route path="RMS/accounts/providentfund" element={<ProvidentFund />} />
-          <Route path="RMS/accounts/taxes" element={<Tax />} />
-          <Route path="RMS/policies" element={<Policy />} />
-          <Route path="RMS/assets" element={<Asset />} />
-          <Route path="RMS/users" element={<Users />} />
-          <Route path="RMS/profile" element={<Profile />} />
-          <Route path="RMS/agents/all" element={<AllAgents />} />
-          <Route path="RMS/agents/details" element={<AgentsDetail />} />
-          <Route path="RMS/agents/status" element={<AgentsStatus />} />
-          <Route path="RMS/agents/holidays" element={<Holidays />} />
-          <Route path="RMS/agents/leaves" element={<AgentsLeaves />} />
-          <Route path="RMS/hierarchy/addhead" element={<AddHead />} />
-          <Route path="RMS/hierarchy/addposition" element={<AddPosition />} />
-          <Route path="RMS/hierarchy/graph" element={<HierarchyGraph />} />
+          <Route path="apps/contacts" element={<Contacts />} />
+          <Route path="employees/all" element={<AllEmployee />} />
+          <Route path="employees/holidays" element={<Holidays />} />
+          <Route path="employees/leaves" element={<Leaves />} />
+          <Route path="employees/overtime" element={<Overtime />} />
+          <Route path="clients" element={<Clients />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="leads" element={<Leads />} />
+          <Route path="accounts/invoices" element={<Invoice />} />
+          <Route path="accounts/expenses" element={<Expense />} />
+          <Route path="accounts/providentfund" element={<ProvidentFund />} />
+          <Route path="accounts/taxes" element={<Tax />} />
+          <Route path="policies" element={<Policy />} />
+          <Route path="assets" element={<Asset />} />
+          <Route path="users" element={<Users />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="agents/all" element={<AllAgents />} />
+          <Route path="agents/details" element={<AgentsDetail />} />
+          <Route path="agents/status" element={<AgentsStatus />} />
+          <Route path="agents/holidays" element={<Holidays />} />
+          <Route path="agents/leaves" element={<AgentsLeaves />} />
+          <Route path="hierarchy/addhead" element={<AddHead />} />
+          <Route path="hierarchy/addposition" element={<AddPosition />} />
+          <Route path="hierarchy/graph" element={<HierarchyGraph />} />
         </Route>
 
         {/* Login route */}
         <Route
-          path="RMS/login"
+          path="/login"
           element={<Login onLogin={handleLogin} />}
         />
         {/* Logout route */}
         <Route
-          path="RMS/logout"
+          path="/logout"
           element={<Logout onLogout={handleLogout} />}
         />
       </Routes>

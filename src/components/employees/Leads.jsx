@@ -25,6 +25,16 @@ export default function Leads() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
+  const [isEditing, setIsEditing] = useState(false);
+  const [editIndex, setEditIndex] = useState(null);
+  const [editFormData, setEditFormData] = useState({
+    leadName: "",
+    email: "",
+    project: "",
+    assignedStaff: "",
+    created: "",
+  });
+
   // Filter leads based on search query
   const filteredLeads = leads.filter(
     (lead) =>
@@ -46,13 +56,45 @@ export default function Leads() {
     }
   };
 
+  // Handle delete action
+  const handleDeleteLead = (index) => {
+    const updatedLeads = leads.filter((_, i) => i !== index);
+    setLeads(updatedLeads);
+  };
+
+  // Handle edit action
+  const handleEditLead = (index) => {
+    setEditIndex(index);
+    setEditFormData(leads[index]);
+    setIsEditing(true);
+  };
+
+  // Handle save changes in the edit form
+  const handleSaveChanges = () => {
+    const updatedLeads = [...leads];
+    updatedLeads[editIndex] = editFormData;
+    setLeads(updatedLeads);
+    setIsEditing(false);
+    setEditIndex(null);
+    setEditFormData({
+      leadName: "",
+      email: "",
+      project: "",
+      assignedStaff: "",
+      created: "",
+    });
+  };
+
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
         <div className="flex flex-col">
           <h1 className="text-3xl font-semibold mb-2">Leads</h1>
           <h1 className="font-semibold mb-4">
-            <span><Link to='/'>Dashboard</Link></span> / Leads Management
+            <span>
+              <Link to="/">Dashboard</Link>
+            </span>{" "}
+            / Leads Management
           </h1>
         </div>
         <div className="flex items-center space-x-4">
@@ -90,14 +132,14 @@ export default function Leads() {
                 <td className="px-4 py-2">{lead.created}</td>
                 <td className="px-4 py-2 flex items-center space-x-4">
                   <button
-                    // Placeholder for editing lead
                     className="text-slate-500 hover:text-blue-700"
+                    onClick={() => handleEditLead(index)}
                   >
                     <HiOutlinePencilAlt size={20} />
                   </button>
                   <button
-                    // Placeholder for deleting lead
                     className="text-slate-500 hover:text-red-700"
+                    onClick={() => handleDeleteLead(index)}
                   >
                     <HiOutlineTrash size={20} />
                   </button>
@@ -107,7 +149,6 @@ export default function Leads() {
           </tbody>
         </table>
       </div>
-
 
       {/* Pagination Controls */}
       <div className="flex justify-end mt-4">
@@ -131,6 +172,70 @@ export default function Leads() {
           </button>
         </div>
       </div>
+
+      {/* Edit Modal */}
+      {isEditing && (
+        <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white w-96 p-6 rounded-md shadow-lg">
+            <h2 className="text-xl font-semibold mb-4">Edit Lead</h2>
+            <div className="space-y-4">
+              <input
+                type="text"
+                value={editFormData.leadName}
+                onChange={(e) =>
+                  setEditFormData({ ...editFormData, leadName: e.target.value })
+                }
+                placeholder="Lead Name"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              />
+              <input
+                type="email"
+                value={editFormData.email}
+                onChange={(e) =>
+                  setEditFormData({ ...editFormData, email: e.target.value })
+                }
+                placeholder="Email"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              />
+              <input
+                type="text"
+                value={editFormData.project}
+                onChange={(e) =>
+                  setEditFormData({ ...editFormData, project: e.target.value })
+                }
+                placeholder="Project"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              />
+              <input
+                type="text"
+                value={editFormData.assignedStaff}
+                onChange={(e) =>
+                  setEditFormData({
+                    ...editFormData,
+                    assignedStaff: e.target.value,
+                  })
+                }
+                placeholder="Assigned Staff"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              />
+            </div>
+            <div className="mt-6 flex justify-end space-x-4">
+              <button
+                onClick={() => setIsEditing(false)}
+                className="px-4 py-2 bg-gray-500 text-white rounded-md"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSaveChanges}
+                className="px-4 py-2 bg-blue-500 text-white rounded-md"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
